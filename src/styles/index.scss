@@ -1,5 +1,187 @@
-$body-color: blue;
+$material-icons-font-path: '~material-icons/iconfont/';
+@import '~material-icons/iconfont/material-icons.scss';
 
-body {
-  color: $body-color;
+:root{
+  font-family: 'Arial'
+}
+
+body,h1,h2,h3,p{
+  margin: 0;
+  padding: 0;
+}
+
+.colors-overlay{
+  background-color: rgba(0,0,0,0.25);
+  position: fixed;
+  top:0;left:0;right:0;bottom:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .colors{
+    display: flex;
+    flex-wrap: wrap;
+  
+    &.hidden{
+      display: none;
+    }
+  
+    .color{
+      width: 55px;
+      height: 55px;
+      position: relative;
+      cursor: pointer;
+  
+      &:hover::after{
+        content: '';
+        position: absolute;
+        top:0;left:0;right:0;bottom:0;
+        background-color: rgba(255,255,255,0.5);
+      }
+    }
+  }
+}
+
+.wrapper{
+  min-width: 800px;
+  max-width: 60vw;
+  margin: auto;
+
+
+  h1{
+    text-align: center;
+    padding: 2rem;
+  }
+  .controls{
+    display: flex;
+    justify-content: center;
+    background-color: lightgrey;
+    border-bottom: 1rem solid rgb(230,230,230);
+
+    button{
+      margin: 0 1rem;
+      outline: none;
+      background-color: rgba(255,255,255,0.5);
+      border: 0;
+      cursor: pointer;
+      padding: 1.25rem;
+      
+      &:hover{
+        background-color: rgba(255,255,255,0.25);
+      }
+    }
+  }
+  
+
+  .post-its{
+    
+    
+    &.column{
+      flex-direction: column;
+      
+      .post-it{
+        height: 10rem;
+      }
+    }
+    
+    &.grid{
+      display: grid;  
+      grid-template-columns: repeat(3,1fr);
+      justify-content: center;
+
+      
+      .post-it{
+        height: 15rem;
+      }
+    }
+
+    .post-it{
+      padding: 1rem;
+      margin: 1rem;
+      box-sizing: border-box;
+      position: relative;
+      word-break: break-all;
+      background-color: peachpuff;
+      -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.53);
+      -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.53);
+      box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.53);
+
+      &.prototype{
+        display: none;
+      }
+
+      .controls-overlay{
+        position: absolute;
+        top: 0;left: 0; right: 0;
+        background-color: rgba(255,255,255,0.75);
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0.25rem;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s;
+        
+        & i{
+          margin: 0 0.5rem;
+          padding: 0.5rem;
+          transition: background-color 0.25s;
+        }
+
+        & i:hover{
+          background-color: rgba(255,255,255,0.9);
+        }
+      }
+
+      &:hover .controls-overlay{
+        pointer-events: all;
+        opacity: 1;
+      }
+
+      &.edit-mode{
+        .controls-overlay{
+          pointer-events: none;
+          opacity: 0;
+        }
+      }
+
+      &.choose-color-mode{
+        .color-overlay{
+          display: flex;
+        }
+      }
+
+      p.content{
+        display: block;
+        overflow: scroll;
+        height: 100%;
+        font-size: 1.15rem;
+      }
+
+      textarea{
+        display: none;
+        resize: none;
+        outline: none;
+        border: 0;
+        padding: 0;
+        font-size: 1.15rem;
+        background-color: rgba(255,255,255,0.2);
+        width: 100%;
+        height: 100%;
+      }
+
+      &.edit-mode{
+        p.content{
+         display: none; 
+        }
+        textarea{
+          display: block;
+        }
+      }
+    
+    }
+
+  }
 }

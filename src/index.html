@@ -3,10 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>webpack starterkit</title>
+  <title>GOODNOTES</title>
 </head>
 <body>
-  <h1>webpack starter</h1>
-  <p>✨ A lightweight foundation for your next webpack based frontend project.</p>
+  <div class="wrapper">
+    <h1>GOODNOTES - For your post it-needs</h1>
+    <div class="controls">
+      <button class="add"><i class="material-icons">add</i></button>
+      <button class="layout"><i class="material-icons">grid_on</i></button>
+    </div>
+    <section class="post-its grid">
+      <article class="prototype post-it">
+        <div class="controls-overlay">
+          <i class="edit-btn material-icons">edit</i>
+          <i class="delete-btn material-icons">delete</i>
+          <i class="color-btn material-icons">colorize</i>
+        </div>
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <textarea cols="30" rows="10"></textarea>
+      </article>
+    </section>
+  </div>
+  
 </body>
 </html>

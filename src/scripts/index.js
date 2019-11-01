@@ -1,3 +1,6 @@
 import '../styles/index.scss';
+import {initUI} from './ui';
+import {loadPersistedState} from './state';
 
-console.log('webpack starterkit');
+loadPersistedState();
+initUI();
